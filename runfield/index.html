@@ -935,7 +935,7 @@
 
   <body>
     <img id="leaves_left" src="leaves_left.png">
-    <canvas id="c" width="1024" height="512">
+    <canvas id="c" width="1024" height="512" contextmenu="fullscreenmenu">
       You're using a browser that doesn't support the canvas element.
       Here's <a href="http://getfirefox.com">one that does</a>.
     </canvas>
@@ -958,4 +958,16 @@
       Music: <a href="http://myspace.com/karhumauri">Mauri Heikkinen</a> (a.k.a. <a href="http://fat-cat.co.uk/fatcat/release.php?id=161">Drowsy</a>)
     </div>
     <script src="../../shared/mozilla-badge.js" defer></script>
+    <script>
+    HTMLElement.prototype.requestFullScreen = 
+      HTMLElement.prototype.requestFullScreen ||
+      HTMLElement.prototype.webkitRequestFullScreen ||
+      HTMLElement.prototype.mozRequestFullScreen ||
+      HTMLElement.prototype.oRequestFullScreen ||
+      HTMLElement.prototype.msRequestFullScreen;
+    </script>
+    <menu id="fullscreenmenu" type="context">
+      <menuitem label="fullscreen" onclick="document.querySelector('canvas').requestFullScreen()">
+      </menuitem>
+    </menu>
 </html>
