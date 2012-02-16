@@ -147,7 +147,6 @@ window.onload = function() {
   var c = document.getElementById('c');
 
   var ctx = c.getContext('2d');
-  //ctx.fillText = function() {};
   var lowres = false;
   var trailergradient = ctx.createLinearGradient(200*magF,0,0,0);
   trailergradient.addColorStop(0, 'rgba(255,255,255,0.5)');
@@ -559,7 +558,7 @@ window.onload = function() {
           speed = 0.2;
           var titleY = 120*magF;
           var titleA = 1;
-          var e = 2500;
+          var e = st-titleScreenTime;
           if (e < 2500) {
             titleA = 0;
             if (e >= 1000) {
@@ -571,6 +570,7 @@ window.onload = function() {
           }
           ctx.drawImage(title.getImage(lowres), 400-title.getImage().width/2, titleY);
           drawBg(ctx, fg_front.getImage(lowres), offset, 1.15, yoff-30*magF, fn, null);
+          ctx.globalAlpha = 1;
           if (e >= 2500) {
             var toff = Math.min(1,(e-2500)/500);
             toff = 0.5-Math.cos(toff*Math.PI)*0.5;
