@@ -99,18 +99,9 @@
 
     <menu id="fullscreenmenu" type="context">
       <menuitem label="fullscreen"
-      onclick="document.querySelector('canvas').requestFullScreen()">
+      onclick="document.querySelector('canvas').mozRequestFullScreen()">
       </menuitem>
     </menu>
-
-    <script>
-      HTMLElement.prototype.requestFullScreen =
-      HTMLElement.prototype.requestFullScreen ||
-      HTMLElement.prototype.webkitRequestFullScreen ||
-      HTMLElement.prototype.mozRequestFullScreen ||
-      HTMLElement.prototype.oRequestFullScreen ||
-      HTMLElement.prototype.msRequestFullScreen;
-    </script>
 
   </body>
 </html>
